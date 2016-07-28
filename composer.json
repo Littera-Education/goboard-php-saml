@@ -1,9 +1,9 @@
 {
-    "name": "onelogin/php-saml",
-    "description": "OneLogin PHP SAML Toolkit",
+    "name": "studysocial/php-saml",
+    "description": " A fork of OneLogin PHP SAML Toolkit",
     "license": "MIT",
     "version": "2.9.1",
-    "homepage": "https://onelogin.zendesk.com/hc/en-us/sections/200245634-SAML-Toolkits",
+    "homepage": "https://github.com/studysocial/php-saml",
     "keywords": ["saml", "saml2", "onelogin"],
     "autoload": {
         "classmap": [
