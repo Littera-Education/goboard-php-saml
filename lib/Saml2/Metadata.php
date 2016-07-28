@@ -7,7 +7,7 @@
 
 class OneLogin_Saml2_Metadata
 {
-    const TIME_VALID = 172800;  // 2 days
+    const TIME_VALID = 31536000;  // 1 year
     const TIME_CACHED = 604800; // 1 week
 
     /**
