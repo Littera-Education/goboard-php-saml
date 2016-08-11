@@ -93,6 +93,10 @@ class OneLogin_Saml2_Auth
         return $this->_settings;
     }
 
+    public function setSettings(OneLogin_Saml2_Settings $settings)  {
+        $this->_settings = $settings;
+    }
+
     /**
      * Set the strict mode active/disable
      *

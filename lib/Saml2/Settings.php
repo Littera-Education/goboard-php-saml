@@ -872,4 +872,9 @@ class OneLogin_Saml2_Settings
       $this->_idp['x509cert'] = $cert;
       $this->formatIdPCert();
     }
+
+    public function setIdPSingleSignOnServiceUrl($idPLoginUrl)
+    {
+        $this->_idp['singleSignOnService']['url'] = $idPLoginUrl;
+    }
 }
