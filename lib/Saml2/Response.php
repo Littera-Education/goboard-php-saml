@@ -187,6 +187,7 @@ class OneLogin_Saml2_Response
                 }
 
                 // Check the issuers
+                /* Do not check the issuer, it won't match with the local idp entityId
                 $issuers = $this->getIssuers();
                 foreach ($issuers as $issuer) {
                     $trimmedIssuer = trim($issuer);
@@ -194,7 +195,7 @@ class OneLogin_Saml2_Response
                     if (empty($trimmedIssuer) || $trimmedIssuer !== $idPEntityId) {
                         throw new Exception("Invalid issuer in the Assertion/Response");
                     }
-                }
+                }*/
 
                 // Check the session Expiration
                 $sessionExpiration = $this->getSessionNotOnOrAfter();
