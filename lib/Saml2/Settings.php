@@ -877,4 +877,8 @@ class OneLogin_Saml2_Settings
     {
         $this->_idp['singleSignOnService']['url'] = $idPLoginUrl;
     }
+
+    public function setIdpEntityId($entityId) {
+        $this->_idp['entityId'] = $entityId;
+    }
 }
