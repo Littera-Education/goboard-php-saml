@@ -288,6 +288,7 @@ class OneLogin_Saml2_Response
             }
             return true;
         } catch (Exception $e) {
+            logger()->error($e);
             $this->_error = $e->getMessage();
             $debug = $this->_settings->isDebugActive();
             if ($debug) {

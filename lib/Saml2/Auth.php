@@ -133,6 +133,11 @@ class OneLogin_Saml2_Auth
                 $this->_authenticated = true;
                 $this->_sessionIndex = $response->getSessionIndex();
                 $this->_sessionExpiration = $response->getSessionNotOnOrAfter();
+                logger()->info('_attributes: ' . $this->_attributes);
+                logger()->info('_nameid: ' . $this->_nameid);
+                logger()->info('_authenticated: ' . $this->_authenticated);
+                logger()->info('_sessionIndex: ' . $this->_sessionIndex);
+                logger()->info();
             } else {
                 $this->_errors[] = 'invalid_response';
                 $this->_errorReason = $response->getError();
