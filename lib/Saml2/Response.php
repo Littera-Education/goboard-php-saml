@@ -56,9 +56,9 @@ class OneLogin_Saml2_Response
     {
         $this->_settings = $settings;
 
-        logger()->info('SAMLResponse: ' . $response);
+       // logger()->info('SAMLResponse: ' . $response);
         $this->response = base64_decode($response);
-        logger()->info('Decoded SAMLResponse: ' . $this->response);
+       // logger()->info('Decoded SAMLResponse: ' . $this->response);
 
         $this->document = new DOMDocument();
         $this->document = OneLogin_Saml2_Utils::loadXML($this->document, $this->response);

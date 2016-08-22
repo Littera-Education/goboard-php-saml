@@ -73,6 +73,10 @@ class OneLogin_Saml2_Auth
      */
     private $_lastRequestID;
 
+
+
+    private $_issuers;
+
     /**
      * Initializes the SP SAML instance.
      *
@@ -133,11 +137,7 @@ class OneLogin_Saml2_Auth
                 $this->_authenticated = true;
                 $this->_sessionIndex = $response->getSessionIndex();
                 $this->_sessionExpiration = $response->getSessionNotOnOrAfter();
-                logger()->info('_attributes: ' . $this->_attributes);
-                logger()->info('_nameid: ' . $this->_nameid);
-                logger()->info('_authenticated: ' . $this->_authenticated);
-                logger()->info('_sessionIndex: ' . $this->_sessionIndex);
-                logger()->info();
+                $this->_issuers = $response->getIssuers();
             } else {
                 $this->_errors[] = 'invalid_response';
                 $this->_errorReason = $response->getError();
@@ -313,6 +313,12 @@ class OneLogin_Saml2_Auth
     {
         return $this->_errorReason;
     }
+
+    public function getIssuers()
+    {
+        return $this->_issuers;
+    }
+
 
     /**
      * Returns the requested SAML attribute
