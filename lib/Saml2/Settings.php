@@ -878,7 +878,22 @@ class OneLogin_Saml2_Settings
         $this->_idp['singleSignOnService']['url'] = $idPLoginUrl;
     }
 
+    public function setIdPSingleSignOnBinding($idPLoginBinding)
+    {
+        $this->_idp['singleSignOnService']['binding'] = $idPLoginBinding;
+    }
+
     public function setIdpEntityId($entityId) {
         $this->_idp['entityId'] = $entityId;
+    }
+
+    public function setIdPSingleSignOutServiceUrl($idPLogoutUrl)
+    {
+        $this->_idp['singleLogoutService']['url'] = $idPLogoutUrl;
+    }
+
+    public function setIdPSingleSignOutBinding($idPLogoutBinding)
+    {
+        $this->_idp['singleLogoutService']['binding'] = $idPLogoutBinding;
     }
 }
