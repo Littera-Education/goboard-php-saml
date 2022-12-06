@@ -2,7 +2,7 @@
     "name": "Littera-Education/goboard-php-saml",
     "description": " A fork of OneLogin PHP SAML Toolkit",
     "license": "MIT",
-    "homepage": "https://github.com/studysocial/php-saml",
+    "homepage": "https://github.com/Littera-Education/goboard-php-saml",
     "keywords": ["saml", "saml2", "onelogin"],
     "autoload": {
         "classmap": [
