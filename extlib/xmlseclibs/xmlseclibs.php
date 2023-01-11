@@ -300,7 +300,7 @@ class XMLSecurityKey {
     }
 
     private function encryptMcrypt($data) {
-        $td = mcrypt_module_open($this->cryptParams['cipher'], '', $this->cryptParams['mode'], '');
+        $td = @mcrypt_module_open($this->cryptParams['cipher'], '', $this->cryptParams['mode'], '');
         $this->iv = mcrypt_create_iv (mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
         mcrypt_generic_init($td, $this->key, $this->iv);
         if ($this->cryptParams['mode'] == MCRYPT_MODE_CBC) {
@@ -316,16 +316,16 @@ class XMLSecurityKey {
     }
 
     private function decryptMcrypt($data) {
-        $td = mcrypt_module_open($this->cryptParams['cipher'], '', $this->cryptParams['mode'], '');
-        $iv_length = mcrypt_enc_get_iv_size($td);
+        $td = @mcrypt_module_open($this->cryptParams['cipher'], '', $this->cryptParams['mode'], '');
+        $iv_length = @mcrypt_enc_get_iv_size($td);
 
         $this->iv = substr($data, 0, $iv_length);
         $data = substr($data, $iv_length);
 
-        mcrypt_generic_init($td, $this->key, $this->iv);
-        $decrypted_data = mdecrypt_generic($td, $data);
-        mcrypt_generic_deinit($td);
-        mcrypt_module_close($td);
+        @mcrypt_generic_init($td, $this->key, $this->iv);
+        $decrypted_data = @mdecrypt_generic($td, $data);
+        @mcrypt_generic_deinit($td);
+        @mcrypt_module_close($td);
         if ($this->cryptParams['mode'] == MCRYPT_MODE_CBC) {
             $dataLen = strlen($decrypted_data);
             $paddingLength = substr($decrypted_data, $dataLen - 1, 1);
